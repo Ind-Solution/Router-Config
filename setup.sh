@@ -9,7 +9,7 @@ systemctl enable ssh.service
 # Update the system and install some packages:
 apt-get update
 apt-get upgrade
-apt-get install -y install iptables-persistent hostapd
+apt-get install -y iptables-persistent hostapd
 apt-get install -y wavemon dnsutils netcat proxychains
 apt-get install -y htop screen tmux vim ripgrep icdiff wget curl rsync
 #apt-get install -y tcpdump lynis
