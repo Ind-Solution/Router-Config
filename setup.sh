@@ -8,8 +8,12 @@ systemctl restart ssh.service
 # Update the system and install some packages:
 apt-get update
 apt-get upgrade
-apt-get install iptables-persistent
-#apt-get install lynis
+apt-get install -y install iptables-persistent hostapd
+apt-get install -y dnsutils netcat proxychains
+apt-get install -y htop screen tmux vim ripgrep icdiff wget curl rsync
+#apt-get install -y tcpdump lynis
 
 # Make some basic network configurations:
 # TODO: Copy sysctl.conf and iptables rules
+
+# TODO: Let hostname match vendor prefix of MAC address
