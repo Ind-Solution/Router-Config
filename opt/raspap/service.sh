@@ -13,6 +13,7 @@ if [ "${action}" = "start" ]; then
         echo "Adding uap0 interface to ${WifiDevice}"
         iw dev ${WifiDevice} interface add uap0 type __ap
         ifconfig uap0 up
+        systemctl restart networking.service
     fi
 
     echo "Starting network services..."
