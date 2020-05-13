@@ -14,13 +14,14 @@ apt-get install -y wavemon dnsutils netcat proxychains
 apt-get install -y htop screen tmux vim ripgrep icdiff wget curl rsync
 #apt-get install -y tcpdump lynis
 
+# Disable the WPA supplicant service:
+systemctl stop wpa_supplicant.service
+systemctl disable wpa_supplicant.service
+
 # Make some basic network configurations:
 # TODO: Copy sysctl.conf and iptables rules
 
-# Set up Wi-Fi access point:
-# TODO: Update hostapd config
+# Unmask Wi-Fi access point service:
 systemctl unmask hostapd.service
-systemctl start hostapd.service
-systemctl enable hostapd.service
 
 # TODO: Let hostname match vendor prefix of MAC address

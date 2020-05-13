@@ -1,0 +1,17 @@
+[Unit]
+Description=RaspAP Service Daemon
+DefaultDependencies=no
+After=multi-user.target
+
+[Service]
+Type=oneshot
+#PIDFile=/run/raspap.pid
+Restart=on-failure
+RestartSec=2
+#Environment=MY_CONF=value
+ExecStart=/bin/bash /opt/raspap/service.sh
+RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target
+
