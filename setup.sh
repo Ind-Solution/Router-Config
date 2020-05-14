@@ -24,4 +24,6 @@ systemctl disable wpa_supplicant.service
 # Unmask Wi-Fi access point service:
 systemctl unmask hostapd.service
 
+#systemctl daemon-reload
+
 # TODO: Let hostname match vendor prefix of MAC address

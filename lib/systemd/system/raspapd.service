@@ -4,12 +4,11 @@ DefaultDependencies=no
 After=multi-user.target
 
 [Service]
-Type=oneshot
+Type=simple
 #PIDFile=/run/raspap.pid
-Restart=on-failure
-RestartSec=2
 #Environment=MY_CONF=value
-ExecStart=/bin/bash /opt/raspap/service.sh
+ExecStart=/bin/bash /opt/raspap/service.sh start
+ExecStop=/bin/bash /opt/raspap/service.sh stop
 RemainAfterExit=no
 
 [Install]

@@ -7,18 +7,16 @@ DAEMONPATH="/lib/systemd/system/raspapd.service"
 WifiDevice="wlan0"
 
 if [ "${action}" = "start" ]; then
-
     ip link ls up | grep -q "uap0" &> /dev/null
     if [ $? != 0 ]; then
-        echo "Adding uap0 interface to ${WifiDevice}"
+        echo "Adding uap0 interface to ${WifiDevice}..."
         iw dev ${WifiDevice} interface add uap0 type __ap
-        ifconfig uap0 up
-        systemctl restart networking.service
+        ifup uap0
     fi
 
     echo "Starting network services..."
     systemctl start hostapd.service
-    sleep 5
+    #sleep 5
 
     #systemctl start dhcpcd.service
     #sleep 5
@@ -34,10 +32,11 @@ elif [ "${action}" = "stop" ]; then
     ip link ls up | grep -q "uap0" &> /dev/null
     if [ $? == 0 ]; then
         echo "Removing uap0 interface..."
+        ifdown uap0
         iw dev uap0 del
     fi
 
-    echo "Services stopped. Exiting."
+    echo "RaspAP service stopped. Exiting."
     exit 0
 fi
 
