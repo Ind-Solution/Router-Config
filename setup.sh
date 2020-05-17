@@ -21,8 +21,10 @@ systemctl disable wpa_supplicant.service
 # Make some basic network configurations:
 # TODO: Copy sysctl.conf and iptables rules
 
-# Unmask Wi-Fi access point service:
+# Unmask and disable Wi-Fi access point service:
 systemctl unmask hostapd.service
+systemctl stop hostapd.service
+systemctl disable hostapd.service
 
 #systemctl daemon-reload
 

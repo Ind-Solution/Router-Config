@@ -14,20 +14,11 @@ if [ "${action}" = "start" ]; then
         ifup uap0
     fi
 
-    echo "Starting network services..."
-    systemctl start hostapd.service
-    #sleep 5
-
-    #systemctl start dhcpcd.service
-    #sleep 5
-
     echo "RaspAP service start DONE"
     exit 0
 elif [ "${action}" = "stop" ]; then
     echo "Stopping network services..."
     #systemctl stop systemd-networkd
-    systemctl stop hostapd.service
-    #systemctl stop dhcpcd.service
 
     ip link ls up | grep -q "uap0" &> /dev/null
     if [ $? == 0 ]; then
