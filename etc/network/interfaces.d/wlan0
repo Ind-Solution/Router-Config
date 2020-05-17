@@ -1,5 +1,5 @@
 auto wlan0
 iface wlan0 inet dhcp
-wireless-power off
+#wireless-power off
 #hwaddress ether 00:00:00:00:00:00
 #wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf

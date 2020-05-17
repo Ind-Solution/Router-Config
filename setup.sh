@@ -9,7 +9,7 @@ systemctl enable ssh.service
 # Update the system and install some packages:
 apt-get update
 apt-get upgrade
-apt-get install -y iptables-persistent hostapd
+apt-get install -y iptables-persistent isc-dhcp-server hostapd
 apt-get install -y wavemon dnsutils netcat proxychains
 apt-get install -y htop screen tmux vim ripgrep icdiff wget curl rsync
 #apt-get install -y tcpdump lynis
@@ -21,10 +21,16 @@ systemctl disable wpa_supplicant.service
 # Make some basic network configurations:
 # TODO: Copy sysctl.conf and iptables rules
 
-# Unmask and disable Wi-Fi access point service:
+# Configure and run DHCP server:
+# TODO: Update isc-dhcp-server config
+systemctl start isc-dhcp-server.service
+systemctl enable isc-dhcp-server.service
+
+# Configure and run Wi-Fi access point service:
+# TODO: Update hostapd config
 systemctl unmask hostapd.service
-systemctl stop hostapd.service
-systemctl disable hostapd.service
+systemctl start hostapd.service
+systemctl enable hostapd.service
 
 #systemctl daemon-reload
 
