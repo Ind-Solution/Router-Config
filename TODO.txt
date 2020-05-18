@@ -1,0 +1,29 @@
+- DNS:
+  * Local Domain
+  * DNSSEC
+  * DoT
+  * DoH
+- Tunnels:
+  * VPN
+  * VPN Kill Switch
+  * Tor
+  * HTTP(S) Tunnel
+  * Iodine
+  * ICMP Tunnel
+- Security/System:
+  * Bind SSH to uap0
+  * /etc/sudoers
+  * iptables rules
+  * Do not keep Logs
+  * SELinux
+  * Adding uap0
+  * Setup system using YML files
+- Ad-Block:
+  * Update script
+  * Cron job for update script
+- Let hostname match vendor prefix of MAC address
+- User interface
+- Honor proxy.pac
+- Security Tools:
+  * wifite2
+  * airgeddon
